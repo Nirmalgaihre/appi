@@ -22,8 +22,34 @@
         </div>
     </div>
 
+    
+
     {{-- ── STAT CARDS ── --}}
     <div>
+
+    <!-- New User Guidance Section -->
+<div class="mb-6">
+    <div class="bg-white p-5 rounded-xl border border-blue-100 shadow-sm flex flex-col md:flex-row items-center justify-between gap-4">
+        <div class="flex items-center gap-4">
+            <div class="bg-blue-50 p-3 rounded-lg">
+                <i class="fa-solid fa-circle-info text-blue-600 text-xl"></i>
+            </div>
+            <div>
+                <h4 class="text-sm font-bold text-gray-800">Are you new in the dashboard?</h4>
+                <p class="text-[12px] text-gray-500">Read the user manual for instructions and latest system updates.</p>
+            </div>
+        </div>
+        
+        <div class="flex items-center gap-2">
+            <a href="{{ route('admin.guide') }}" class="text-[11px] font-bold bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors uppercase">
+                See User Manual
+            </a>
+            <a href="{{ route('admin.updates') }}" class="text-[11px] font-bold bg-gray-100 text-gray-600 px-4 py-2 rounded-lg hover:bg-gray-200 transition-colors uppercase">
+                View Updates
+            </a>
+        </div>
+    </div>
+</div>
         <p class="text-[10px] font-black text-gray-400 uppercase tracking-widest mb-3">Overview</p>
         <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
 

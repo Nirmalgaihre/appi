@@ -179,10 +179,10 @@ class CertificateController extends Controller
         $pdf->Cell(170, 8, 'Council for Technical Education and Vocational Training', 0, 1, 'C');
         $pdf->SetFont('Times', 'B', 19);
         $pdf->SetXY(65, 33);
-        $pdf->Cell(170, 7, 'Aandhikhola Polytechnic Institute', 0, 1, 'C');
+        $pdf->Cell(170, 7, 'ANNAPURNA POLYTECHNIC INSTITUTE', 0, 1, 'C');
         $pdf->SetFont('Times', '', 11);
         $pdf->SetXY(65, 41);
-        $pdf->Cell(170, 6, 'Walling 13, Syangja', 0, 1, 'C');
+        $pdf->Cell(170, 6, 'Annapurna 3, Kahundanda, Kaski', 0, 1, 'C');
 
         /* PHOTO BOX */
         $pdf->SetDrawColor(200, 200, 200);

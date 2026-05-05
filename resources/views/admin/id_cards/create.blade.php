@@ -12,8 +12,8 @@
             <div>
                 <label class="block text-xs font-bold uppercase text-gray-500 mb-1">Program</label>
                 <select name="program" class="w-full border p-2 rounded text-sm outline-none">
-                    <option value="DIT">DIT (Diploma in IT)</option>
-                    <option value="DCE">DCE (Diploma in Computer Engineering)</option>
+                    <option value="Diploma in Agriculture (Plant Science)">Diploma in Agriculture (Plant Science)</option>
+                    <option value="Diploma in Agriculture (Animal Science)">Diploma in Agriculture (Animal Science)</option>
                 </select>
             </div>
         </div>

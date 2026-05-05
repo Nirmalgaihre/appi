@@ -1,81 +1,101 @@
 @extends('layouts.app')
 
-@section('title', 'Diploma in Information Technology')
-@section('meta_description', 'Explore the full curriculum and semester-wise breakdown for the Diploma in Information Technology at Aandhikhola Polytechnic Institute.')
+@section('title', 'Diploma in Agriculture (Plant Science) - Annapurna Polytechnic Institute')
+@section('meta_description', 'Full curriculum and semester-wise breakdown for the Diploma in Agriculture (Plant Science) at Annapurna Polytechnic Institute.')
 
 @section('content')
 <div class="bg-[#F8FAFC] min-h-screen py-12">
     <div class="max-w-[1400px] mx-auto px-6">
+        <!-- Header -->
         <div class="mb-12 border-b-2 border-slate-800 pb-6">
-            <h1 class="text-3xl font-bold text-slate-900 uppercase tracking-tight">Diploma in Information Technology</h1>
+            <h1 class="text-3xl font-bold text-slate-900 uppercase tracking-tight">Diploma in Agriculture (Plant Science)</h1>
             <p class="text-slate-600 font-medium mt-1">Full Curriculum Structure & Semester Breakdown | पूर्ण पाठ्यक्रम संरचना र सेमेस्टर विवरण</p>
         </div>
 
+        <!-- Info Grid -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
             <div class="bg-white p-6 border border-slate-200 shadow-sm">
                 <h2 class="text-lg font-bold text-slate-800 border-b pb-2 mb-4 uppercase text-xs tracking-widest">Introduction | परिचय</h2>
                 <p class="text-sm text-slate-600 leading-relaxed">
-                    The DIT program provides a strong foundation in software development, cybersecurity, and system administration. It is designed to produce skilled IT professionals capable of handling modern digital challenges.
-                    <br><span class="text-slate-500 italic mt-2 block">DIT कार्यक्रमले सफ्टवेयर विकास, साइबर सुरक्षा, र प्रणाली प्रशासनमा बलियो आधार प्रदान गर्दछ।</span>
+                    This program is designed to produce skilled mid-level technical human resources in the field of agriculture. Students gain expertise in crop production, soil management, and agricultural extension to support sustainable farming practices.
+                    <br><span class="text-slate-500 italic mt-2 block">यस कार्यक्रमले कृषि क्षेत्रमा दक्ष मध्यम स्तरको जनशक्ति उत्पादन गर्ने लक्ष्य राखेको छ।</span>
                 </p>
             </div>
             <div class="bg-white p-6 border border-slate-200 shadow-sm">
-                <h2 class="text-lg font-bold text-slate-800 border-b pb-2 mb-4 uppercase text-xs tracking-widest">What You'll Learn | तपाईंले के सिक्नुहुनेछ</h2>
+                <h2 class="text-lg font-bold text-slate-800 border-b pb-2 mb-4 uppercase text-xs tracking-widest">Core Learning | मुख्य सिकाई</h2>
                 <ul class="grid grid-cols-2 gap-2 text-xs font-bold text-slate-700">
-                    <li class="flex items-center gap-2"><i class="fa-solid fa-code text-[#302171]"></i> Web & App Dev</li>
-                    <li class="flex items-center gap-2"><i class="fa-solid fa-shield-halved text-[#302171]"></i> Cybersecurity</li>
-                    <li class="flex items-center gap-2"><i class="fa-solid fa-database text-[#302171]"></i> DBMS & SQL</li>
-                    <li class="flex items-center gap-2"><i class="fa-solid fa-microchip text-[#302171]"></i> AI Fundamentals</li>
-                    <li class="flex items-center gap-2"><i class="fa-solid fa-cloud text-[#302171]"></i> Cloud Computing</li>
-                    <li class="flex items-center gap-2"><i class="fa-solid fa-network-wired text-[#302171]"></i> Networking</li>
+                    <li class="flex items-center gap-2"><i class="fa-solid fa-seedling text-[#302171]"></i> Agronomy & Seeds</li>
+                    <li class="flex items-center gap-2"><i class="fa-solid fa-leaf text-[#302171]"></i> Horticulture</li>
+                    <li class="flex items-center gap-2"><i class="fa-solid fa-vial text-[#302171]"></i> Soil Management</li>
+                    <li class="flex items-center gap-2"><i class="fa-solid fa-bug text-[#302171]"></i> Plant Protection</li>
+                    <li class="flex items-center gap-2"><i class="fa-solid fa-microscope text-[#302171]"></i> Agri Statistics</li>
+                    <li class="flex items-center gap-2"><i class="fa-solid fa-users text-[#302171]"></i> Social Mobilization</li>
                 </ul>
             </div>
         </div>
 
         @php
-        $ditSyllabus = [
-            '1st Year - 1st Part' => [
-                ['EG 1101 SH', 'Applied Nepali'], ['EG 1102 SH', 'Applied English'], ['EG 1103 SH', 'Engineering Mathematics I'],
-                ['EG 1104 SH', 'Engineering Physics I'], ['EG 1105 SH', 'Engineering Chemistry I'], ['EG 1102 AR', 'Engineering Drawing I'],
-                ['EG 1101 CT', 'Computer Application']
+        $syllabus = [
+            'First Year' => [
+                'Semester I' => [
+                    ['1101SH', 'Nepali'], ['1102SH', 'English I'], ['1103SH', 'Mathematics I'],
+                    ['AG1104SH', 'Physics I'], ['AG1105SH', 'Chemistry I'], ['AG1106SH', 'Zoology I'],
+                    ['AG1107SH', 'Botany I']
+                ],
+                'Semester II' => [
+                    ['1201SH', 'English II'], ['1202SH', 'Mathematics II'], ['AG1203SH', 'Physics II'],
+                    ['AG1204SH', 'Chemistry II'], ['AG1205SH', 'Zoology II'], ['AG1206SH', 'Botany II'],
+                    ['EG1211CT', 'Computer Application']
+                ]
             ],
-            '1st Year - 2nd Part' => [
-                ['EG 1201 SH', 'Engineering Mathematics II'], ['EG 1202 SH', 'Engineering Physics II'], ['EG 1203 SH', 'Engineering Chemistry II'],
-                ['EG 1201 AR', 'Engineering Drawing II'], ['EG 1202 CE', 'Applied Mechanics']
+            'Second Year' => [
+                'Semester I' => [
+                    ['AG2101PS', 'Fundamentals of Horticulture'], ['AG2102PS', 'Agro-metrology & Env. Science'],
+                    ['AG2103PS', 'Irrigation & Farm Structures'], ['AG2104PS', 'Fundamentals of Agronomy'],
+                    ['AG2105PS', 'Agriculture Entomology'], ['AG2106PS', 'Fundamentals of Soil Science'],
+                    ['AG2101AS', 'Introductory Animal Husbandry']
+                ],
+                'Semester II' => [
+                    ['AG2201PS', 'Soil Fertility Management'], ['AG2202PS', 'Cereal Crop Production'],
+                    ['AG2203PS', 'Plant Pathology & Mushroom'], ['AG2204PS', 'Vegetable & Spice Crop Production'],
+                    ['AG2205PS', 'Fundamentals of Aquaculture'], ['AG2206PS', 'Agri-Economics & Farm Management'],
+                    ['AG2207PS', 'Industrial Crops']
+                ]
             ],
-            '2nd Year - 1st Part' => [
-                ['EG 2101 SH', 'Engineering Mathematics III'], ['EG 2101 CT', 'C Programming'], ['EG 2102 SH', 'Web Technology I'],
-                ['EG 2103 CT', 'Digital Logic'], ['EG 2101 IT', 'PC Troubleshoot & Maintenance'], ['EG 2106 CT', 'Basic Electrical and Electronics']
-            ],
-            '2nd Year - 2nd Part' => [
-                ['EG 2201 CT', 'Database Management System'], ['EG 2202 CT', 'Data Structure & Algorithm'], ['EG 2203 CT', 'Object Oriented Programming (Java)'],
-                ['EG 2204 CT', 'Microprocessor & Computer Architecture'], ['EG 2205 CT', 'Web Technology II'], ['EG 2206 CT', 'Statistics & Probability']
-            ],
-            '3rd Year - 1st Part' => [
-                ['EG 3101 CT', 'Computer Graphics'], ['EG 3102 CT', 'Data Communication & Network'], ['EG 3103 CT', 'Operating System'],
-                ['EG 3101 IT', 'Cloud Computing'], ['EG 3102 IT', 'Software Development'], ['EG 3103 IT', 'Elective I'],
-                ['EG 3104 IT', 'Minor Project']
-            ],
-            '3rd Year - 2nd Part' => [
-                ['EG 3201 CT', 'Multimedia System'], ['EG 3202 CT', 'Internet of Things'], ['EG 3201 MG', 'Entrepreneurship Development'],
-                ['EG 3201 IT', 'Cyber Security'], ['EG 3202 IT', 'Elective II'], ['EG 3104 IT', 'Major Project']
+            'Third Year' => [
+                'Semester I' => [
+                    ['AG3101PS', 'Medicinal Plants and NTFP'], ['AG3102PS', 'Grain Legumes and Oilseed Crops'],
+                    ['AG3103PS', 'Fruit Crop Production'], ['AG3104PS', 'Post-Harvest Technology'],
+                    ['AG3105PS', 'Agriculture Extension & Comm.'], ['AG3106PS', 'Agribusiness, Marketing & Coop.'],
+                    ['AG3107PS', 'Ornamental Horticulture'], ['AG3108PS', 'Seed Technology']
+                ],
+                'Semester II' => [
+                    ['AG3201PS', 'Elementary Agriculture Statistics'], ['AG3202PS', 'Social Mobilization & Community Dev.'],
+                    ['EG3201MG', 'Entrepreneurship Development'], ['AG3204PS', 'Internship (Farm Practice Training)']
+                ]
             ]
         ];
         @endphp
 
-        <div class="row flex flex-wrap -mx-4">
-            @foreach($ditSyllabus as $semester => $courses)
-            <div class="col-md-4 w-full md:w-1/2 lg:w-1/3 px-4 mb-8">
-                <div class="bg-white border border-slate-200 shadow-sm h-full flex flex-col">
-                    <div class="bg-slate-800 px-5 py-3">
-                        <h2 class="text-white text-xs font-bold uppercase tracking-wider">{{ $semester }}</h2>
+        @foreach($syllabus as $year => $semesters)
+        <div class="mb-12">
+            <h2 class="text-xl font-extrabold text-slate-800 mb-6 flex items-center gap-3">
+                <span class="bg-slate-800 text-white px-3 py-1 text-sm rounded">{{ $year }}</span>
+                <div class="h-px bg-slate-200 flex-1"></div>
+            </h2>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                @foreach($semesters as $semesterName => $courses)
+                <div class="bg-white border border-slate-200 shadow-sm flex flex-col">
+                    <div class="bg-slate-50 px-5 py-3 border-b border-slate-200">
+                        <h3 class="text-slate-700 text-xs font-bold uppercase tracking-wider">{{ $semesterName }}</h3>
                     </div>
                     <div class="flex-1">
                         <table class="w-full text-left border-collapse">
                             <tbody class="divide-y divide-slate-100">
                                 @foreach($courses as $course)
                                 <tr class="hover:bg-slate-50 transition-colors">
-                                    <td class="px-5 py-3 text-[10px] font-mono font-bold text-slate-400 w-24 border-r border-slate-50">{{ $course[0] }}</td>
+                                    <td class="px-5 py-3 text-[10px] font-mono font-bold text-slate-400 w-32 border-r border-slate-50">{{ $course[0] }}</td>
                                     <td class="px-5 py-3 text-xs font-semibold text-slate-700">{{ $course[1] }}</td>
                                 </tr>
                                 @endforeach
@@ -83,9 +103,10 @@
                         </table>
                     </div>
                 </div>
+                @endforeach
             </div>
-            @endforeach
         </div>
+        @endforeach
     </div>
 </div>
 @endsection

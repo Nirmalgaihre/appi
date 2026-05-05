@@ -99,15 +99,31 @@ Route::get('/downloads/{dept}/{sem}', function ($dept, $sem) {
 })->name('semester.show');
 
 // Programs
-Route::get('/programs/information-technology', function () {
+Route::get('/programs/plant-science', function () {
     return view('programs.dit');
 })->name('programs.dit');
 
-Route::get('/programs/civil-engineering', function () {
+Route::get('/programs/animal-science', function () {
     return view('programs.dce');
-})->name('programs.dce');
+})->name('programs.dce'); 
+
+Route::get('/programs/pre-diploma', function () {
+    return view('programs.pre-diploma');
+})->name('programs.pre-diploma');
 
 Route::get('/video-gallery', [VideoController::class, 'publicIndex'])->name('public.videos.index');
+
+// This MUST be the last route in your web.php file
+Route::fallback(function () {
+    return response()->view('errors.404', [], 404);
+});
+// Allows 10 requests per minute per IP address
+Route::middleware('throttle:10,1')->group(function () {
+    Route::get('/user', function () {
+        return "Target Data";
+    });
+});
+
 
 /*
 |--------------------------------------------------------------------------
@@ -212,6 +228,12 @@ Route::prefix('notices')->group(function () {
         Route::post('/categories/store', [NoticeCategoryController::class, 'store'])->name('categories.store');
         Route::delete('/categories/{id}', [NoticeCategoryController::class, 'destroy'])->name('categories.destroy');
 });
+
+
+// User Guide
+Route::get('/user-guide', function () {
+        return view('admin.guide');
+    })->name('admin.guide');
     /*
     |---------------- BLOG ----------------|
     */
@@ -252,6 +274,10 @@ Route::get('/categories', [StaffCategoryController::class, 'index'])->name('staf
     Route::post('/categories', [StaffCategoryController::class, 'store'])->name('staff-categories.store');
     Route::delete('/categories/{id}', [StaffCategoryController::class, 'destroy'])->name('staff-categories.destroy');
     });
+
+    Route::get('/updates', function () {
+        return view('admin.updates.index');
+    })->name('admin.updates');
 
     /*
     |---------------- SETTINGS / PRINCIPAL MESSAGE ----------------|

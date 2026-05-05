@@ -103,10 +103,11 @@ class IdCardController extends Controller
         $pdf->SetTextColor(255, 255, 255);
         $pdf->SetFont('Arial', 'B', 10);
         $pdf->SetXY(22, 6);
-        $pdf->MultiCell(60, 4, "AANDHIKHOLA\nPOLYTECHNIC INSTITUTE", 0, 'C');
+        $pdf->MultiCell(60, 4, "ANNAPURNA\nPOLYTECHNIC INSTITUTE", 0, 'C');
         $pdf->SetXY(22, 16);
         $pdf->SetFont('Arial', '', 7);
-        $pdf->Cell(60, 4, "Walling 13, Syangja | 9856001005", 0, 0, 'C');
+        $pdf->Cell(60, 4, "Annapurna 3, Kahundanda, Kaski | 
+985-6080460", 0, 0, 'C');
 
         // --- 3. Profile Picture (PP Size: 35x40mm) ---
         $imgW = 35; 

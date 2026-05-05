@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aandhikhola Polytechnic Institute Login</title>
+    <title>Annapurna Polytechnic Institute Login</title>
             <link rel="icon" type="image/png" href="{{ asset('assets/img/logo.png') }}">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -39,8 +39,8 @@
         <div class="login-left">
             <img src="{{ asset('assets/img/logo.png') }}" alt="API Logo">
             <h2>Council for Technical Education and Vocational Training (CTEVT)</h2>
-            <h5>Aandhikhola Polytechnic Institute</h5>
-            <p>Walling-13, Syangja, Nepal</p>
+            <h5>Annapurna Polytechnic Institute</h5>
+            <p>Annapurna 3, Kahundanda, Kaski, Nepal</p>
         </div>
 
         <div class="login-right">
@@ -73,6 +73,10 @@
                     <input type="checkbox" id="remember" name="remember">
                     <label for="remember">Remember Me</label>
                 </div>
+               <div class="form-group" style="display: flex; justify-content: center; margin-bottom: 1rem;">
+        <div class="g-recaptcha" data-sitekey="{{ env('RECAPTCHA_SITE_KEY') }}"></div>
+    </div>
+                
 
                 <button type="submit" class="login-btn">Sign In</button>
 
@@ -93,6 +97,8 @@
             this.classList.toggle('fa-eye');
             this.classList.toggle('fa-eye-slash');
         });
+        
     </script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </body>
 </html>
