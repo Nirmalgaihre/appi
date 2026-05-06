@@ -1,6 +1,10 @@
 @extends('layouts.app')
 
-@section('title', 'Staff')
+@section('title', 'Staff - Annapurna Polytechnic Institute')
+
+@section('meta_description', 'Meet the expert faculty and dedicated staff at Annapurna Polytechnic Institute, Kaski. Leading technical education in Plant Science and Animal Science.')
+
+@section('meta_keywords', 'Annapurna Polytechnic Institute Staff, API Kaski Faculty, Plant Science Teachers, Animal Science Instructors, Kahundanda Technical School')
 @section('content')
 <div class="bg-[#F8FAFC] min-h-screen py-10 md:py-20">
     <div class="max-w-7xl mx-auto px-4 md:px-6">

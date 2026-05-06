@@ -1,6 +1,32 @@
 @extends('layouts.app')
 
-@section('title', $gallery->title)
+@section('title', $gallery->title . ' - Annapurna Polytechnic Institute')
+
+@section('meta_description', Str::limit($gallery->description ?? 'View our photo gallery at Annapurna Polytechnic Institute, Kaski.', 150))
+
+@section('meta_keywords', 'Annapurna Polytechnic Institute, API Gallery, Kaski Technical School, ' . $gallery->title)
+
+@push('meta_tags')
+    @php
+        // Use the first image of the gallery as the meta image, or a default if empty
+        $firstImage = $gallery->images->first();
+        $metaImageUrl = $firstImage 
+            ? asset('storage/' . $firstImage->image_path) 
+            : asset('assets/img/484148101_966497299002090_7946760972799036593_n.jpg');
+    @endphp
+
+    {{-- Social Media Meta Tags --}}
+    <meta property="og:title" content="{{ $gallery->title }} | API Gallery" />
+    <meta property="og:description" content="{{ Str::limit($gallery->description, 100) }}" />
+    <meta property="og:image" content="{{ $metaImageUrl }}" />
+    <meta property="og:url" content="{{ url()->current() }}" />
+    <meta property="og:type" content="article" />
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{ $gallery->title }}">
+    <meta name="twitter:description" content="{{ Str::limit($gallery->description, 100) }}">
+    <meta name="twitter:image" content="{{ $metaImageUrl }}">
+@endpush
 
 @section('scripts')
     {{-- Alpine.js is required for the Skeleton and Popup logic --}}

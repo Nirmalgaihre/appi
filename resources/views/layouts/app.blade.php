@@ -183,7 +183,7 @@ $nepaliDate = \Anuzpandey\LaravelNepaliDate\LaravelNepaliDate::from(now())
                 </div>
 
                 {{-- Admission Button --}}
-                <a href="https://bit.ly/apiadmission"
+                <a href="https://forms.gle/3osJxRicNEhZTScaA"
                     class="group relative flex items-center gap-2 bg-yellow-500 hover:bg-white text-[#004a99] px-3 md:px-5 py-1 rounded-sm text-[10px] md:text-[11px] font-bold uppercase tracking-widest transition-all duration-300 shadow-md whitespace-nowrap">
 
                     {{-- Blinking Indicator --}}
