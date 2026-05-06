@@ -1,138 +1,134 @@
 @extends('layouts.app')
+
 {{-- 1. Corrected Title Section --}}
-@section('title', 'Contact Us ')
+@section('title', 'Contact Us | Annapurna Polytechnic Institute')
 
 {{-- 2. SEO Description --}}
-@section('meta_description', 'Get in touch with Aandhikhola Polytechnic Institute in Waling, Syangja. Contact us for admissions, DIT/DCE program inquiries, or general institutional information.')
+@section('meta_description', 'Contact Annapurna Polytechnic Institute in Kahundanda, Pokhara-11, Kaski. Reach out for admissions, technical program inquiries, or institutional information.')
 
 {{-- 3. Author Credit --}}
-@section('meta_author', 'Nirmal Gaihre')
+@section('meta_author', 'Annapurna Polytechnic Institute')
 
 {{-- 4. Local SEO Keywords --}}
-@section('meta_keywords', 'Contact API Waling, Aandhikhola Polytechnic Phone Number, Syangja Technical School, API Admission Inquiry, CTEVT College Syangja')
+@section('meta_keywords', 'Contact Annapurna Polytechnic Kaski, Kahundanda Polytechnic Phone, Pokhara Technical School, API Kaski Admission, CTEVT College Pokhara')
+
 @section('content')
 <section class="min-h-screen bg-slate-50 py-16">
     <div class="max-w-6xl mx-auto px-4">
         
         <div class="bg-white rounded-3xl shadow-2xl overflow-hidden grid grid-cols-1 lg:grid-cols-12 border border-slate-200">
             
-            <div class="lg:col-span-5 bg-[#1e1b4b] p-10 lg:p-16 text-white flex flex-col justify-between">
+            {{-- Left Sidebar: Contact Info --}}
+            <div class="lg:col-span-5 bg-[#0f172a] p-10 lg:p-16 text-white flex flex-col justify-between">
                 <div>
                     <h2 class="text-3xl font-extrabold mb-4">Get in Touch</h2>
-                    <p class="text-indigo-200 mb-12 leading-relaxed">
-                        Aandhikhola Polytechnic Institute is committed to providing quality TEVT programs. Reach out to us for admissions, inquiries, or collaborations.
+                    <p class="text-slate-300 mb-12 leading-relaxed">
+                        Annapurna Polytechnic Institute is dedicated to excellence in technical education. Contact our Kahundanda campus for admissions or technical inquiries.
                     </p>
 
                     <div class="space-y-8">
                         <div class="flex items-start gap-5">
                             <div class="w-12 h-12 bg-white/10 rounded-2xl flex items-center justify-center shrink-0 border border-white/20">
-                                <i class="fa-solid fa-location-dot text-orange-400"></i>
+                                <i class="fa-solid fa-location-dot text-sky-400"></i>
                             </div>
                             <div>
                                 <h4 class="font-bold text-lg">Address</h4>
-                                <p class="text-indigo-100/80 text-sm">Aandhikhola, Syangja, Nepal</p>
+                                <p class="text-slate-300 text-sm">Annapurna 3,Kahundanda, Kaski, Nepal</p>
                             </div>
                         </div>
 
                         <div class="flex items-start gap-5">
                             <div class="w-12 h-12 bg-white/10 rounded-2xl flex items-center justify-center shrink-0 border border-white/20">
-                                <i class="fa-solid fa-phone text-orange-400"></i>
+                                <i class="fa-solid fa-phone text-sky-400"></i>
                             </div>
                             <div>
                                 <h4 class="font-bold text-lg">Phone</h4>
-                                <p class="text-indigo-100/80 text-sm">+977-985-6001005</p>
+                                <p class="text-slate-300 text-sm">061-414117</p> {{-- Update with actual landline/mobile --}}
                             </div>
                         </div>
 
                         <div class="flex items-start gap-5">
                             <div class="w-12 h-12 bg-white/10 rounded-2xl flex items-center justify-center shrink-0 border border-white/20">
-                                <i class="fa-solid fa-envelope text-orange-400"></i>
+                                <i class="fa-solid fa-envelope text-sky-400"></i>
                             </div>
                             <div>
                                 <h4 class="font-bold text-lg">Email</h4>
-                                <p class="text-indigo-100/80 text-sm">ctevt.abps@gmail.com</p>
+                                <p class="text-slate-300 text-sm">ctevtappi@gmail.com</p>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <div class="mt-12">
-                    <p class="text-[10px] font-black uppercase tracking-[0.2em] text-indigo-400 mb-4">Official Channels</p>
+                    <p class="text-[10px] font-black uppercase tracking-[0.2em] text-sky-500 mb-4">Official Channels</p>
                     <div class="flex gap-4">
-                        <a href="https://www.facebook.com/abps.edu.np" class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-orange-500 transition-all">
+                        <a href="#" class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-sky-600 transition-all">
                             <i class="fa-brands fa-facebook-f"></i>
                         </a>
-                        <a href="#" class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-orange-500 transition-all">
-                            <i class="fa-brands fa-twitter"></i>
+                        <a href="#" class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-sky-600 transition-all">
+                            <i class="fa-brands fa-instagram"></i>
                         </a>
-                        <a href="#" class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-orange-500 transition-all">
+                        <a href="#" class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-sky-600 transition-all">
                             <i class="fa-brands fa-linkedin-in"></i>
                         </a>
                     </div>
                 </div>
             </div>
 
+            {{-- Right Sidebar: Form --}}
             <div class="lg:col-span-7 p-10 lg:p-16">
                 <div class="mb-10">
                     <h2 class="text-2xl font-bold text-slate-800">Send a Message</h2>
-                    <p class="text-slate-500 text-sm mt-1">Fields marked with * are required.</p>
+                    <p class="text-slate-500 text-sm mt-1">Please fill in the details below to reach our administration.</p>
                 </div>
 
                 @if(session('success'))
-                    <div class="mb-8 p-4 bg-emerald-50 border border-emerald-200 text-emerald-700 rounded-2xl flex items-center gap-3 animate-bounce">
+                    <div class="mb-8 p-4 bg-emerald-50 border border-emerald-200 text-emerald-700 rounded-2xl flex items-center gap-3">
                         <i class="fa-solid fa-circle-check text-xl"></i>
                         <span class="text-sm font-bold uppercase">{{ session('success') }}</span>
-                    </div>
-                @endif
-
-                @if(session('error'))
-                    <div class="mb-8 p-4 bg-red-50 border border-red-200 text-red-700 rounded-2xl text-sm font-medium">
-                        {{ session('error') }}
                     </div>
                 @endif
 
                 <form id="contactForm" action="{{ route('contact.store') }}" method="POST" class="space-y-6">
                     @csrf
                     
-                    {{-- Hidden Tracker Fields --}}
                     <input type="hidden" name="latitude" id="lat">
                     <input type="hidden" name="longitude" id="lon">
 
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div class="space-y-2">
                             <label class="text-[11px] font-black text-slate-400 uppercase tracking-wider ml-1">Full Name *</label>
-                            <input type="text" name="name" required placeholder="Enter Your Name" 
-                                class="w-full bg-slate-50 border border-slate-200 rounded-2xl px-5 py-4 text-sm focus:bg-white focus:ring-4 focus:ring-indigo-500/10 focus:border-indigo-500 outline-none transition-all">
+                            <input type="text" name="name" required placeholder="John Doe" 
+                                class="w-full bg-slate-50 border border-slate-200 rounded-2xl px-5 py-4 text-sm focus:bg-white focus:ring-4 focus:ring-sky-500/10 focus:border-sky-500 outline-none transition-all">
                         </div>
                         <div class="space-y-2">
                             <label class="text-[11px] font-black text-slate-400 uppercase tracking-wider ml-1">Email Address *</label>
-                            <input type="email" name="email" required placeholder="Enter your Email Address" 
-                                class="w-full bg-slate-50 border border-slate-200 rounded-2xl px-5 py-4 text-sm focus:bg-white focus:ring-4 focus:ring-indigo-500/10 focus:border-indigo-500 outline-none transition-all">
+                            <input type="email" name="email" required placeholder="email@example.com" 
+                                class="w-full bg-slate-50 border border-slate-200 rounded-2xl px-5 py-4 text-sm focus:bg-white focus:ring-4 focus:ring-sky-500/10 focus:border-sky-500 outline-none transition-all">
                         </div>
                     </div>
 
                     <div class="space-y-2">
                         <label class="text-[11px] font-black text-slate-400 uppercase tracking-wider ml-1">Subject *</label>
-                        <input type="text" name="subject" required placeholder="Enter Subject" 
-                            class="w-full bg-slate-50 border border-slate-200 rounded-2xl px-5 py-4 text-sm focus:bg-white focus:ring-4 focus:ring-indigo-500/10 focus:border-indigo-500 outline-none transition-all">
+                        <select name="subject" required class="w-full bg-slate-50 border border-slate-200 rounded-2xl px-5 py-4 text-sm focus:bg-white focus:ring-4 focus:ring-sky-500/10 focus:border-sky-500 outline-none transition-all">
+                            <option value="">Select a Topic</option>
+                            <option value="Admission Inquiry">Admission Inquiry</option>
+                            <option value="General Information">General Information</option>
+                            <option value="Technical Support">Technical Support</option>
+                        </select>
                     </div>
 
                     <div class="space-y-2">
                         <label class="text-[11px] font-black text-slate-400 uppercase tracking-wider ml-1">Your Message *</label>
-                        <textarea name="message" rows="5" required placeholder="Type your message here..." 
-                            class="w-full bg-slate-50 border border-slate-200 rounded-2xl px-5 py-4 text-sm focus:bg-white focus:ring-4 focus:ring-indigo-500/10 focus:border-indigo-500 outline-none transition-all resize-none"></textarea>
+                        <textarea name="message" rows="4" required placeholder="How can we help you?" 
+                            class="w-full bg-slate-50 border border-slate-200 rounded-2xl px-5 py-4 text-sm focus:bg-white focus:ring-4 focus:ring-sky-500/10 focus:border-sky-500 outline-none transition-all resize-none"></textarea>
                     </div>
 
                     <button type="button" id="submitBtn" onclick="requestAccessAndSubmit()" 
-                        class="w-full bg-[#1e1b4b] hover:bg-orange-500 text-white font-black py-5 rounded-2xl text-xs uppercase tracking-[0.2em] shadow-xl shadow-indigo-100 transition-all flex justify-center items-center gap-3">
+                        class="w-full bg-sky-600 hover:bg-sky-700 text-white font-black py-5 rounded-2xl text-xs uppercase tracking-[0.2em] shadow-xl shadow-sky-100 transition-all flex justify-center items-center gap-3">
                         <span id="btnText">Verify & Send Message</span>
                         <i class="fa-solid fa-paper-plane" id="btnIcon"></i>
                     </button>
-
-                    <div class="flex items-center gap-2 justify-center opacity-40">
-                        <i class="fa-solid fa-shield-halved text-[10px]"></i>
-                        <!-- <p class="text-[9px] font-bold uppercase tracking-tighter">Your IP and Device data will be securely logged for security</p> -->
-                    </div>
                 </form>
             </div>
         </div>
@@ -145,33 +141,32 @@ function requestAccessAndSubmit() {
     const btnText = document.getElementById('btnText');
     const btnIcon = document.getElementById('btnIcon');
 
-    // UI Loading State
+    btn.disabled = true;
     btn.classList.add('opacity-70', 'cursor-not-allowed');
-    btnText.innerText = 'Acquiring Location...';
+    btnText.innerText = 'Verifying Location...';
     btnIcon.className = 'fa-solid fa-spinner fa-spin';
 
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(
             (position) => {
-                // Success: Map Lat/Lon and Submit Form
                 document.getElementById('lat').value = position.coords.latitude;
                 document.getElementById('lon').value = position.coords.longitude;
                 document.getElementById('contactForm').submit();
             },
             (error) => {
-                // Error: User denied location
-                alert("Security Protocol: You must allow location access to submit the contact form to verify you are within our service region.");
+                alert("Please enable location access to verify your request and submit the form.");
                 resetButton(btn, btnText, btnIcon);
             },
-            { timeout: 10000 }
+            { timeout: 8000 }
         );
     } else {
-        alert("Your browser does not support the required security verification features.");
+        alert("Geolocation is not supported by this browser.");
         resetButton(btn, btnText, btnIcon);
     }
 }
 
 function resetButton(btn, text, icon) {
+    btn.disabled = false;
     btn.classList.remove('opacity-70', 'cursor-not-allowed');
     text.innerText = 'Verify & Send Message';
     icon.className = 'fa-solid fa-paper-plane';

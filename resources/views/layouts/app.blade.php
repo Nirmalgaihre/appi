@@ -155,8 +155,8 @@ $nepaliDate = \Anuzpandey\LaravelNepaliDate\LaravelNepaliDate::from(now())
             <div class="flex items-center space-x-4 md:space-x-6 text-[11px] md:text-[12px]">
                 <span class="flex items-center gap-1.5">
                     <i class="fa-regular fa-envelope opacity-70 text-yellow-400"></i>
-                    <a href="mailto:ctevt.abps@gmail.com" class="hover:underline transition-colors tracking-tight">
-                        appi@gmail.com
+                    <a href="mailto: ctevtappi@gmail.com" class="hover:underline transition-colors tracking-tight">
+                         ctevtappi@gmail.com
                     </a>
                 </span>
 
