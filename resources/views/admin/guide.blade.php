@@ -539,8 +539,8 @@
                     गर्नुहोस्।
                 </p>
                 <div class="mt-3 flex gap-4">
-                    <span class="text-[11px] font-bold text-orange-500">EMAIL: support@institute.com</span>
-                    <span class="text-[11px] font-bold text-orange-500">CALL: +977-98XXXXXXXX</span>
+                    <span class="text-[11px] font-bold text-orange-500">EMAIL: gaihrenirmal2021@institute.com</span>
+                    <span class="text-[11px] font-bold text-orange-500">CALL: +977-9765511650</span>
                 </div>
             </div>
         </div>

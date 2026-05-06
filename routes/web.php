@@ -117,13 +117,6 @@ Route::get('/video-gallery', [VideoController::class, 'publicIndex'])->name('pub
 Route::fallback(function () {
     return response()->view('errors.404', [], 404);
 });
-// Allows 10 requests per minute per IP address
-Route::middleware('throttle:10,1')->group(function () {
-    Route::get('/user', function () {
-        return "Target Data";
-    });
-});
-
 
 /*
 |--------------------------------------------------------------------------
