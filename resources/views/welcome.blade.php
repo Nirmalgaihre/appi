@@ -1,22 +1,8 @@
-@section('title', 'Annapurna Polytechnic Institute ')
-
-@section('meta_description', 'Welcome to API. We offer Diploma in Plant Science and Animal Science in Kaski. Explore our staff, principal’s message, and latest notices.')
-
-@section('meta_keywords', 'Annapurna Polytechnic Institute, API, Plant Science, Animal Science, Technical School Kaski, Kahundanda')
-
-@push('meta_tags')
-    {{-- Social Media Meta Tags --}}
-    <meta property="og:title" content="Annapurna Polytechnic Institute - Kaski" />
-    <meta property="og:description" content="Now offering Diploma in Plant Science and Animal Science. Located in Annapurna 3, Kahundanda, Kaski, Nepal." />
-    <meta property="og:image" content="{{ asset('assets/img/484148101_966497299002090_7946760972799036593_n.jpg') }}" />
-    <meta property="og:url" content="{{ url()->current() }}" />
-    <meta property="og:type" content="website" />
-
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Annapurna Polytechnic Institute">
-    <meta name="twitter:description" content="Explore our Diploma programs in Plant Science and Animal Science at our Kaski campus.">
-    <meta name="twitter:image" content="{{ asset('assets/img/484148101_966497299002090_7946760972799036593_n.jpg') }}">
-@endpush
+@extends('layouts.app')
+@section('title', 'Annapurna Polytechnic Institute | Waling, Syangja')
+@section('meta_description', 'Welcome to API. We offer Diploma in Civil Engineering and Information Technology. Explore
+our staff, principal’s message, and latest notices.')
+@section('meta_keywords', 'Annapurna Polytechnic Institute, ABPS, API, Waling, Technical School Syangja')
 @section('content')
 
 {{-- ── TICKER BAR ── --}}
