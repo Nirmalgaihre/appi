@@ -1,8 +1,9 @@
 @extends('layouts.app')
-@section('title', 'Annapurna Polytechnic Institute | Waling, Syangja')
-@section('meta_description', 'Welcome to API. We offer Diploma in Civil Engineering and Information Technology. Explore
-our staff, principal’s message, and latest notices.')
-@section('meta_keywords', 'Annapurna Polytechnic Institute, ABPS, API, Waling, Technical School Syangja')
+@section('title', 'Annapurna Polytechnic Institute | Kahundanda, Kaski')
+
+@section('meta_description', 'Welcome to API. We offer Diploma programs in Plant Science and Animal Science. Explore our faculty, principal’s message, and latest notices.')
+
+@section('meta_keywords', 'Annapurna Polytechnic Institute, API Kaski, Plant Science, Animal Science, Technical School Nepal')
 @section('content')
 
 {{-- ── TICKER BAR ── --}}

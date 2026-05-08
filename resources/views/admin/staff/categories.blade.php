@@ -3,87 +3,86 @@
 @section('title', 'Staff Categories')
 
 @section('content')
-<div class="max-w-5xl mx-auto">
-    {{-- Header Section --}}
-    <div class="mb-8 border-b border-gray-100 pb-4 flex justify-between items-end">
+<div class="max-w-6xl mx-auto px-4 py-8">
+    
+    <div class="mb-8 flex justify-between items-center border-b border-slate-100 pb-5">
         <div>
-            <h2 class="text-2xl font-bold text-gray-800">Staff Categories</h2>
-            <p class="text-xs text-gray-500 uppercase tracking-widest mt-1">Management for Staff Departments</p>
-        </div>
-        <div class="text-right">
-            <p class="text-[9px] font-black text-gray-400 uppercase tracking-widest">Nepal Time</p>
-            <p class="text-xs font-bold text-gray-600">{{ now()->timezone('Asia/Kathmandu')->format('h:i A') }}</p>
+            <h2 class="text-xl font-bold text-slate-800">Staff Categories</h2>
+            <p class="text-xs text-slate-500 mt-1 uppercase tracking-wider">Organize faculty and administration hierarchy</p>
         </div>
     </div>
 
-    @if(session('success'))
-        <div class="mb-6 p-3 bg-emerald-50 text-emerald-700 border border-emerald-100 rounded text-xs font-bold uppercase text-center animate-pulse">
-            {{ session('success') }}
-        </div>
-    @endif
-
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
         
-        {{-- LEFT COLUMN: ADD FORM --}}
-        <div class="bg-white border border-gray-200 rounded-xl p-6 shadow-sm h-fit">
-            <div class="flex items-center gap-2 mb-6">
-                <i class="fa-solid fa-folder-plus text-indigo-600"></i>
-                <h3 class="text-sm font-black text-gray-700 uppercase tracking-widest">Create New</h3>
-            </div>
-
-            <form action="{{ route('staff-categories.store') }}" method="POST">
-                @csrf
-                <div class="mb-5">
-                    <label class="block text-[10px] font-black text-gray-400 uppercase mb-2">Category Title</label>
-                    <input type="text" name="title" placeholder="e.g. Administration" required 
-                           class="w-full border border-gray-200 rounded-lg px-4 py-3 text-sm focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 outline-none transition-all">
+        <div class="lg:col-span-1">
+            <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+                <div class="px-6 py-4 bg-slate-50 border-b border-slate-200">
+                    <h3 class="text-xs font-bold text-slate-600 uppercase tracking-widest">Add New Category</h3>
                 </div>
-                
-                <button type="submit" class="w-full bg-slate-900 hover:bg-black text-white font-bold py-3 rounded-lg text-[10px] uppercase tracking-widest transition-all shadow-lg shadow-slate-200">
-                    Save Category
-                </button>
-            </form>
+                <form action="{{ route('staff-categories.store') }}" method="POST" class="p-6">
+                    @csrf
+                    <div class="mb-5">
+                        <label class="block text-[10px] font-bold text-slate-400 uppercase mb-2 tracking-widest">Category Name</label>
+                        <div class="relative">
+                            <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-slate-400">
+                                <i class="fa-solid fa-tag text-xs"></i>
+                            </span>
+                            <input type="text" name="title" required placeholder="e.g. Teaching Faculty" 
+                                class="w-full pl-10 pr-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:bg-white outline-none text-sm transition-all">
+                        </div>
+                    </div>
+
+                    <button type="submit" class="w-full bg-slate-900 text-white py-3 rounded-xl font-bold text-xs uppercase tracking-widest hover:bg-indigo-600 transition-all shadow-md active:scale-95">
+                        <i class="fa-solid fa-plus mr-2"></i> Save Category
+                    </button>
+                </form>
+            </div>
         </div>
 
-        {{-- RIGHT COLUMN: LIST TABLE --}}
-        <div class="md:col-span-2 bg-white border border-gray-200 rounded-xl shadow-sm overflow-hidden">
-            <table class="w-full text-left">
-                <thead class="bg-gray-50/50 border-b border-gray-100">
-                    <tr>
-                        <th class="px-6 py-4 text-[10px] font-black text-gray-400 uppercase tracking-tighter w-16 text-center">ID</th>
-                        <th class="px-6 py-4 text-[10px] font-black text-gray-400 uppercase tracking-widest">Title</th>
-                        <th class="px-6 py-4 text-[10px] font-black text-gray-400 uppercase tracking-widest text-right">Actions</th>
-                    </tr>
-                </thead>
-                <tbody class="divide-y divide-gray-50">
-                    @forelse($categories as $cat)
-                    <tr class="hover:bg-slate-50/50 transition-colors group">
-                        <td class="px-6 py-4 text-xs font-mono text-gray-300 text-center">#{{ $cat->id }}</td>
-                        <td class="px-6 py-4">
-                            <span class="text-sm font-bold text-gray-700 group-hover:text-indigo-600 transition-colors">
-                                {{ $cat->title }}
-                            </span>
-                        </td>
-                        <td class="px-6 py-4 text-right">
-                            <form action="{{ route('staff-categories.destroy', $cat->id) }}" method="POST" onsubmit="return confirm('Delete this category?')">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="text-gray-300 hover:text-red-500 transition-all p-2 rounded-md">
-                                    <i class="fa-solid fa-trash-can"></i>
-                                </button>
-                            </form>
-                        </td>
-                    </tr>
-                    @empty
-                    <tr>
-                        <td colspan="3" class="px-6 py-16 text-center opacity-20 italic text-sm font-bold uppercase tracking-widest">
-                            No Categories Found
-                        </td>
-                    </tr>
-                    @endforelse
-                </tbody>
-            </table>
+        <div class="lg:col-span-2">
+            <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+                <table class="w-full text-left border-collapse">
+                    <thead>
+                        <tr class="bg-slate-50 border-b border-slate-200">
+                            <th class="px-6 py-4 text-[10px] font-bold text-slate-400 uppercase tracking-widest">Order</th>
+                            <th class="px-6 py-4 text-[10px] font-bold text-slate-400 uppercase tracking-widest">Category Title</th>
+                            <th class="px-6 py-4 text-[10px] font-bold text-slate-400 uppercase tracking-widest text-right">Management</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-100">
+                        @forelse($categories as $cat)
+                        <tr class="hover:bg-slate-50/50 transition-colors">
+                            <td class="px-6 py-4">
+                                <span class="text-xs font-mono font-bold text-slate-400">#{{ str_pad($cat->position, 2, '0', STR_PAD_LEFT) }}</span>
+                            </td>
+                            <td class="px-6 py-4">
+                                <span class="text-sm font-bold text-slate-700">{{ $cat->title }}</span>
+                            </td>
+                            <td class="px-6 py-4 text-right">
+                                <div class="flex justify-end gap-3">
+                                    <form action="{{ route('staff-categories.destroy', $cat->id) }}" method="POST" onsubmit="return confirm('Remove this category?')">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="w-8 h-8 flex items-center justify-center rounded-lg text-slate-400 hover:text-red-600 hover:bg-red-50 transition-all">
+                                            <i class="fa-solid fa-trash-can text-xs"></i>
+                                        </button>
+                                    </form>
+                                </div>
+                            </td>
+                        </tr>
+                        @empty
+                        <tr>
+                            <td colspan="3" class="px-6 py-12 text-center">
+                                <i class="fa-solid fa-folder-open text-slate-200 text-4xl mb-4"></i>
+                                <p class="text-xs text-slate-400 font-medium">No categories defined yet.</p>
+                            </td>
+                        </tr>
+                        @endforelse
+                    </tbody>
+                </table>
+            </div>
         </div>
+
     </div>
 </div>
 @endsection

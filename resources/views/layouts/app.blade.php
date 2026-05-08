@@ -417,7 +417,7 @@ $nepaliDate = \Anuzpandey\LaravelNepaliDate\LaravelNepaliDate::from(now())
                 </p>
 
                 <div class="flex gap-3 pt-2">
-                    <a href="#"
+                    <a href="https://www.facebook.com/annapurnapolytechnic" target="_blank"
                         class="w-10 h-10 border border-white/20 flex items-center justify-center rounded-lg hover:bg-[#FF8A65] hover:border-[#FF8A65] hover:shadow-lg hover:shadow-[#FF8A65]/20 transition-all duration-300 group">
                         <i class="fa-brands fa-facebook-f group-hover:scale-110 transition-transform"></i>
                     </a>

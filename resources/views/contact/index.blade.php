@@ -62,7 +62,7 @@
                 <div class="mt-12">
                     <p class="text-[10px] font-black uppercase tracking-[0.2em] text-sky-500 mb-4">Official Channels</p>
                     <div class="flex gap-4">
-                        <a href="#" class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-sky-600 transition-all">
+                        <a href="https://www.facebook.com/annapurnapolytechnic" class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-sky-600 transition-all">
                             <i class="fa-brands fa-facebook-f"></i>
                         </a>
                         <a href="#" class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-sky-600 transition-all">
@@ -98,12 +98,12 @@
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div class="space-y-2">
                             <label class="text-[11px] font-black text-slate-400 uppercase tracking-wider ml-1">Full Name *</label>
-                            <input type="text" name="name" required placeholder="John Doe" 
+                            <input type="text" name="name" required placeholder="Enter your Full Name" 
                                 class="w-full bg-slate-50 border border-slate-200 rounded-2xl px-5 py-4 text-sm focus:bg-white focus:ring-4 focus:ring-sky-500/10 focus:border-sky-500 outline-none transition-all">
                         </div>
                         <div class="space-y-2">
                             <label class="text-[11px] font-black text-slate-400 uppercase tracking-wider ml-1">Email Address *</label>
-                            <input type="email" name="email" required placeholder="email@example.com" 
+                            <input type="email" name="email" required placeholder="Enter your Email Address" 
                                 class="w-full bg-slate-50 border border-slate-200 rounded-2xl px-5 py-4 text-sm focus:bg-white focus:ring-4 focus:ring-sky-500/10 focus:border-sky-500 outline-none transition-all">
                         </div>
                     </div>

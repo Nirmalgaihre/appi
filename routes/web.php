@@ -70,8 +70,24 @@ Route::prefix('blog')->group(function () {
     Route::get('/{slug}', [BlogController::class, 'publicShow'])->name('public.blog.show');
 });
 
-// Staff
-Route::get('/staff', [StaffController::class, 'publicIndex'])->name('public.staff.index');
+Route::get('/staff', [StaffController::class, 'publicIndex'])->name('staff.public');
+// Staff Frontend Route
+Route::get('/staff', function() {
+    $staffGroups = DB::table('staff')
+        ->leftJoin('staff_categories', 'staff.staff_category', '=', 'staff_categories.id')
+        ->select(
+            'staff.*', 
+            'staff_categories.title as category_title',
+            'staff_categories.position as category_position'
+        )
+        ->orderBy('staff_categories.position', 'asc') 
+        ->orderBy('staff.position', 'asc') 
+        ->get()
+        ->groupBy('category_title');
+
+    return view('staff.index', compact('staffGroups'));
+})->name('public.staff.index'); // <--- ADD THIS LINE
+
 Route::get('/principal-message', [StaffController::class, 'principalMessage'])->name('principal.message');
 
 // Publications
@@ -242,36 +258,34 @@ Route::put('/{post}', [BlogController::class, 'update'])->name('blog.update');
 
     // Video
     Route::resource('videos', VideoController::class);
+/*
+|--------------------------------------------------------------------------
+| STAFF & CATEGORY MANAGEMENT
+|--------------------------------------------------------------------------
+*/
 
-    /*
-    |---------------- STAFF ----------------|
-    */
-    Route::prefix('staff')->group(function () {
-        Route::get('/', [StaffController::class, 'index'])->name('staff.index');
-    Route::get('/create', [StaffController::class, 'create'])->name('staff.create');
-    Route::post('/', [StaffController::class, 'store'])->name('staff.store');
-    
-    // १. Hierarchy देखाउने पेज
-    Route::get('/hierarchy', [StaffController::class, 'hierarchy'])->name('staff.hierarchy');
-    
-    // २. नयाँ क्रम (Order) सेभ गर्ने रूट - यो थप्नुहोस्
-    Route::post('/reorder', [StaffController::class, 'reorder'])->name('staff.reorder');
+    Route::get('/staff', [StaffController::class, 'index'])->name('staff.index');
+    Route::get('/staff/create', [StaffController::class, 'create'])->name('staff.create');
+    Route::post('/staff/store', [StaffController::class, 'store'])->name('staff.store');
+    // THE MISSING ROUTES CAUSING THE ERROR:
+    Route::get('/staff/{id}/edit', [StaffController::class, 'edit'])->name('staff.edit');
+    Route::put('/staff/{id}', [StaffController::class, 'update'])->name('staff.update');
+    Route::delete('/staff/{id}', [StaffController::class, 'destroy'])->name('staff.destroy');
+    // Temporary placeholder to stop the error
+    // Hierarchy View
+    Route::get('/staff/hierarchy', [StaffController::class, 'hierarchy'])->name('staff.hierarchy');
 
-    Route::get('/{id}/edit', [StaffController::class, 'edit'])->name('staff.edit');
-    Route::put('/{id}', [StaffController::class, 'update'])->name('staff.update');
-    Route::delete('/{id}', [StaffController::class, 'destroy'])->name('staff.destroy');
+    // AJAX Reorder Action
+    Route::post('/staff/reorder', [StaffController::class, 'reorder'])->name('staff.reorder');
 
-// This points the category management to the staff subdirectory logic
-Route::get('/categories', [StaffCategoryController::class, 'index'])->name('staff-categories.index');    
-Route::get('/categories', [StaffCategoryController::class, 'index'])->name('staff-categories.index');
+    // This handles the /admin/categories URL
+    Route::get('/categories', [StaffCategoryController::class, 'index'])->name('staff-categories.index');
     Route::post('/categories', [StaffCategoryController::class, 'store'])->name('staff-categories.store');
     Route::delete('/categories/{id}', [StaffCategoryController::class, 'destroy'])->name('staff-categories.destroy');
-    });
-
-    Route::get('/updates', function () {
-        return view('admin.updates.index');
-    })->name('admin.updates');
-
+        // --- Other Admin Routes ---
+        Route::get('/updates', function () {
+            return view('admin.updates.index');
+        })->name('admin.updates');
     /*
     |---------------- SETTINGS / PRINCIPAL MESSAGE ----------------|
     */
@@ -327,15 +341,15 @@ Route::get('/categories', [StaffCategoryController::class, 'index'])->name('staf
     ];
 
     return view('admin.logs.security_stats', compact('stats'));
-})->name('admin.security_stats');
+    })->name('admin.security_stats');
     
     // Model Resource Routes
-Route::get('/resources', [ResourceController::class, 'index'])->name('resources.index');
-Route::get('/resources/create', [ResourceController::class, 'create'])->name('resources.create');
-Route::post('/resources', [ResourceController::class, 'store'])->name('resources.store');
-Route::get('/resources/{id}/edit', [ResourceController::class, 'edit'])->name('resources.edit');
-Route::put('/resources/{id}', [ResourceController::class, 'update'])->name('resources.update');
-Route::delete('/resources/{id}', [ResourceController::class, 'destroy'])->name('resources.destroy');
+    Route::get('/resources', [ResourceController::class, 'index'])->name('resources.index');
+    Route::get('/resources/create', [ResourceController::class, 'create'])->name('resources.create');
+    Route::post('/resources', [ResourceController::class, 'store'])->name('resources.store');
+    Route::get('/resources/{id}/edit', [ResourceController::class, 'edit'])->name('resources.edit');
+    Route::put('/resources/{id}', [ResourceController::class, 'update'])->name('resources.update');
+    Route::delete('/resources/{id}', [ResourceController::class, 'destroy'])->name('resources.destroy');
     /*
     |---------------- PUBLICATIONS ----------------|
     */

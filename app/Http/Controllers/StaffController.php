@@ -8,14 +8,21 @@ use Illuminate\Support\Facades\Storage;
 
 class StaffController extends Controller
 {
-    // 1. Manage List (Fixed with leftJoin)
+    // 1. Manage List (Admin Dashboard)
     public function index() {
         $staff = DB::table('staff')
             ->leftJoin('staff_categories', 'staff.staff_category', '=', 'staff_categories.id')
-            ->select('staff.*', 'staff_categories.title as category_title')
-            ->orderBy('position', 'asc')
+            ->select(
+                'staff.*', 
+                'staff_categories.title as category_title',
+                'staff_categories.position as cat_pos'
+            )
+            // Sort by category position numerically first
+            ->orderByRaw('CAST(cat_pos AS UNSIGNED) ASC') 
+            // Then sort by staff member's position numerically (1, 2, 3... 10, 11)
+            ->orderByRaw('CAST(staff.position AS UNSIGNED) ASC') 
             ->get();
-            
+                
         return view('admin.staff.index', compact('staff'));
     }
 
@@ -29,8 +36,8 @@ class StaffController extends Controller
     public function store(Request $request) {
         $data = $request->only('staff_name', 'staff_phone', 'staff_email', 'staff_category');
         
-        // Get the next position number
-        $maxPos = DB::table('staff')->max('position');
+        // FIX: Treat position as a number using CAST to get the true maximum value
+        $maxPos = DB::table('staff')->max(DB::raw('CAST(position AS UNSIGNED)'));
         $data['position'] = $maxPos ? $maxPos + 1 : 1;
 
         if ($request->hasFile('staff_img')) {
@@ -41,7 +48,7 @@ class StaffController extends Controller
             'created_at' => now(),
             'updated_at' => now()
         ]));
-
+        
         return redirect()->route('staff.index')->with('success', 'Staff added successfully!');
     }
 
@@ -58,7 +65,7 @@ class StaffController extends Controller
 
         if ($request->hasFile('staff_img')) {
             $old = DB::table('staff')->where('id', $id)->first();
-            if($old->staff_img) Storage::disk('public')->delete($old->staff_img);
+            if($old && $old->staff_img) Storage::disk('public')->delete($old->staff_img);
             $data['staff_img'] = $request->file('staff_img')->store('staff', 'public');
         }
 
@@ -74,39 +81,58 @@ class StaffController extends Controller
         return back()->with('success', 'Staff deleted.');
     }
 
-    // 7. Hierarchy (Drag & Drop)
+    // 7. Hierarchy View
     public function hierarchy() {
-        $staff = DB::table('staff')->orderBy('position', 'asc')->get();
+        $staff = DB::table('staff')
+            ->leftJoin('staff_categories', 'staff.staff_category', '=', 'staff_categories.id')
+            ->select('staff.*', 'staff_categories.title as category_title')
+            ->orderByRaw('CAST(staff.position AS UNSIGNED) ASC') // Keeps it numeric in drag-drop screen
+            ->get();
+            
         return view('admin.staff.hierarchy', compact('staff'));
     }
 
+    // 8. Reorder Logic (AJAX)
     public function reorder(Request $request) {
-        foreach ($request->order as $index => $id) {
-            DB::table('staff')->where('id', $id)->update(['position' => $index + 1]);
+        if($request->has('order')) {
+            foreach ($request->order as $index => $id) {
+                DB::table('staff')
+                    ->where('id', $id)
+                    ->update(['position' => $index + 1]);
+            }
+            return response()->json(['status' => 'success']);
         }
-        return response()->json(['status' => 'success']);
+        return response()->json(['status' => 'error'], 400);
     }
+
+    // 9. Public Frontend View
     public function publicIndex() {
-    // We join with staff_categories to get the category names
-    $staffGroups = DB::table('staff')
+    $staff = DB::table('staff')
         ->leftJoin('staff_categories', 'staff.staff_category', '=', 'staff_categories.id')
-        ->select('staff.*', 'staff_categories.title as category_title')
-        ->orderBy('position', 'asc') // This follows your hierarchy
-        ->get()
-        ->groupBy('category_title'); // Groups them into sections
+        ->select(
+            'staff.*', 
+            'staff_categories.title as category_title',
+            'staff_categories.position as cat_pos'
+        )
+        ->orderByRaw('CAST(cat_pos AS UNSIGNED) ASC') 
+        ->orderByRaw('CAST(staff.position AS UNSIGNED) ASC') 
+        ->get();
 
-    return view('staff.index', compact('staffGroups'));
-}
+        $staffGroups = $staff->groupBy('category_title');
 
-public function principalMessage() {
-    $principal = DB::table('staff')
-        ->leftJoin('staff_categories', 'staff.staff_category', '=', 'staff_categories.id')
-        ->where('staff_categories.title', 'Principal')
-        ->select('staff.*')
-        ->first();
+        return view('staff.index', compact('staffGroups'));
+    }
 
-    $message = DB::table('descriptions')->first();
+    // 10. Principal Message View
+    public function principalMessage() {
+        $principal = DB::table('staff')
+            ->leftJoin('staff_categories', 'staff.staff_category', '=', 'staff_categories.id')
+            ->where('staff_categories.title', 'Principal')
+            ->select('staff.*')
+            ->first();
 
-    return view('about.principal', compact('principal', 'message'));
-}
+        $message = DB::table('descriptions')->first();
+
+        return view('about.principal', compact('principal', 'message'));
+    }
 }

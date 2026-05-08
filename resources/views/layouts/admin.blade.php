@@ -198,16 +198,16 @@ $contactCount = $contactCount ?? 0;
                         :class="open ? 'rotate-90' : ''"></i>
                 </button>
                 <div class="submenu-container" :class="open ? 'submenu-open' : ''">
+                    {{-- Added Category Link Below --}}
+                    <a href="{{ route('staff-categories.index') }}"
+                        class="block px-14 py-2 text-xs hover:text-yellow-400 {{ request()->is('admin/staff/categories') ? 'text-yellow-400' : '' }}">
+                        <i class="fa-solid fa-layer-group mr-2"></i> Staff Categories
+                    </a>
                     <a href="{{ route('staff.create') }}" class="block px-14 py-2 text-xs hover:text-yellow-400">
                         <i class="fa-solid fa-user-plus mr-2"></i> Add Staff
                     </a>
                     <a href="{{ route('staff.index') }}" class="block px-14 py-2 text-xs hover:text-yellow-400">
                         <i class="fa-solid fa-list-check mr-2"></i> Manage Staff
-                    </a>
-                    {{-- Added Category Link Below --}}
-                    <a href="{{ route('staff-categories.index') }}"
-                        class="block px-14 py-2 text-xs hover:text-yellow-400 {{ request()->is('admin/staff/categories') ? 'text-yellow-400' : '' }}">
-                        <i class="fa-solid fa-layer-group mr-2"></i> Staff Categories
                     </a>
                     <a href="{{ route('staff.hierarchy') }}" class="block px-14 py-2 text-xs hover:text-yellow-400">
                         <i class="fa-solid fa-sitemap mr-2"></i> Hierarchy Order
