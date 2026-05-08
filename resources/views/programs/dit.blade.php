@@ -1,102 +1,106 @@
 @extends('layouts.app')
 
 @section('title', 'Diploma in Agriculture (Plant Science) - Annapurna Polytechnic Institute')
-@section('meta_description', 'Full curriculum and semester-wise breakdown for the Diploma in Agriculture (Plant Science) at Annapurna Polytechnic Institute.')
+@section('meta_description', 'Detailed yearly curriculum and subject breakdown for the Diploma in Agriculture (Plant Science) program at Annapurna Polytechnic Institute.')
 
 @section('content')
 <div class="bg-[#F8FAFC] min-h-screen py-12">
     <div class="max-w-[1400px] mx-auto px-6">
-        <!-- Header -->
         <div class="mb-12 border-b-2 border-slate-800 pb-6">
             <h1 class="text-3xl font-bold text-slate-900 uppercase tracking-tight">Diploma in Agriculture (Plant Science)</h1>
-            <p class="text-slate-600 font-medium mt-1">Full Curriculum Structure & Semester Breakdown | पूर्ण पाठ्यक्रम संरचना र सेमेस्टर विवरण</p>
+            <p class="text-slate-600 font-medium mt-1">Full Curriculum Structure & Yearly Breakdown | पूर्ण पाठ्यक्रम संरचना र वार्षिक विवरण</p>
         </div>
 
-        <!-- Info Grid -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
             <div class="bg-white p-6 border border-slate-200 shadow-sm">
                 <h2 class="text-lg font-bold text-slate-800 border-b pb-2 mb-4 uppercase text-xs tracking-widest">Introduction | परिचय</h2>
                 <p class="text-sm text-slate-600 leading-relaxed">
-                    This program is designed to produce skilled mid-level technical human resources in the field of agriculture. Students gain expertise in crop production, soil management, and agricultural extension to support sustainable farming practices.
-                    <br><span class="text-slate-500 italic mt-2 block">यस कार्यक्रमले कृषि क्षेत्रमा दक्ष मध्यम स्तरको जनशक्ति उत्पादन गर्ने लक्ष्य राखेको छ।</span>
+                    The Plant Science program is designed to produce skilled technical human resources capable of managing crop production, soil fertility, and plant protection. It prepares students for roles as Junior Technicians (JT) in various agricultural sectors.
+                    <br><span class="text-slate-500 italic mt-2 block">यस कार्यक्रमले बाली विज्ञान, माटो व्यवस्थापन र बिरुवा संरक्षणमा दक्ष प्राविधिक जनशक्ति उत्पादन गर्ने लक्ष्य राखेको छ।</span>
                 </p>
             </div>
             <div class="bg-white p-6 border border-slate-200 shadow-sm">
-                <h2 class="text-lg font-bold text-slate-800 border-b pb-2 mb-4 uppercase text-xs tracking-widest">Core Learning | मुख्य सिकाई</h2>
+                <h2 class="text-lg font-bold text-slate-800 border-b pb-2 mb-4 uppercase text-xs tracking-widest">Core Competencies | मुख्य विषयवस्तु</h2>
                 <ul class="grid grid-cols-2 gap-2 text-xs font-bold text-slate-700">
-                    <li class="flex items-center gap-2"><i class="fa-solid fa-seedling text-[#302171]"></i> Agronomy & Seeds</li>
-                    <li class="flex items-center gap-2"><i class="fa-solid fa-leaf text-[#302171]"></i> Horticulture</li>
-                    <li class="flex items-center gap-2"><i class="fa-solid fa-vial text-[#302171]"></i> Soil Management</li>
-                    <li class="flex items-center gap-2"><i class="fa-solid fa-bug text-[#302171]"></i> Plant Protection</li>
-                    <li class="flex items-center gap-2"><i class="fa-solid fa-microscope text-[#302171]"></i> Agri Statistics</li>
-                    <li class="flex items-center gap-2"><i class="fa-solid fa-users text-[#302171]"></i> Social Mobilization</li>
+                    <li class="flex items-center gap-2"><i class="fa-solid fa-seedling text-[#302171]"></i> Agronomy & Seed Tech</li>
+                    <li class="flex items-center gap-2"><i class="fa-solid fa-leaf text-[#302171]"></i> Plant Protection</li>
+                    <li class="flex items-center gap-2"><i class="fa-solid fa-faucet-drip text-[#302171]"></i> Soil & Irrigation</li>
+                    <li class="flex items-center gap-2"><i class="fa-solid fa-apple-whole text-[#302171]"></i> Horticulture</li>
+                    <li class="flex items-center gap-2"><i class="fa-solid fa-microscope text-[#302171]"></i> Plant Breeding</li>
+                    <li class="flex items-center gap-2"><i class="fa-solid fa-chart-line text-[#302171]"></i> Farm Management</li>
                 </ul>
             </div>
         </div>
 
         @php
-        $syllabus = [
+        $plantScienceSyllabus = [
             'First Year' => [
-                'Semester I' => [
-                    ['1101SH', 'Nepali'], ['1102SH', 'English I'], ['1103SH', 'Mathematics I'],
-                    ['AG1104SH', 'Physics I'], ['AG1105SH', 'Chemistry I'], ['AG1106SH', 'Zoology I'],
-                    ['AG1107SH', 'Botany I']
-                ],
-                'Semester II' => [
-                    ['1201SH', 'English II'], ['1202SH', 'Mathematics II'], ['AG1203SH', 'Physics II'],
-                    ['AG1204SH', 'Chemistry II'], ['AG1205SH', 'Zoology II'], ['AG1206SH', 'Botany II'],
-                    ['EG1211CT', 'Computer Application']
+                'Foundational & Disciplinary Subjects' => [
+                    ['AG-101-PS', 'Agronomy - I'],
+                    ['AG-102-PS', 'Horticulture - I'],
+                    ['AG-103-SH', 'Mathematics'],
+                    ['AG-104-SH', 'Physics'],
+                    ['AG-105-SH', 'Chemistry'],
+                    ['AG-106-SH', 'Zoology'],
+                    ['AG-107-SH', 'Botany'],
+                    ['AG-108-PS', 'Introductory Plant Science']
                 ]
             ],
             'Second Year' => [
-                'Semester I' => [
-                    ['AG2101PS', 'Fundamentals of Horticulture'], ['AG2102PS', 'Agro-metrology & Env. Science'],
-                    ['AG2103PS', 'Irrigation & Farm Structures'], ['AG2104PS', 'Fundamentals of Agronomy'],
-                    ['AG2105PS', 'Agriculture Entomology'], ['AG2106PS', 'Fundamentals of Soil Science'],
-                    ['AG2101AS', 'Introductory Animal Husbandry']
-                ],
-                'Semester II' => [
-                    ['AG2201PS', 'Soil Fertility Management'], ['AG2202PS', 'Cereal Crop Production'],
-                    ['AG2203PS', 'Plant Pathology & Mushroom'], ['AG2204PS', 'Vegetable & Spice Crop Production'],
-                    ['AG2205PS', 'Fundamentals of Aquaculture'], ['AG2206PS', 'Agri-Economics & Farm Management'],
-                    ['AG2207PS', 'Industrial Crops']
+                'Core Disciplinary Subjects' => [
+                    ['AG-201-SH', 'English'],
+                    ['AG-202-PS', 'Plant Breeding and Seed Technology'],
+                    ['AG-203-PS', 'Plant Protection - I'],
+                    ['AG-204-PS', 'Agronomy - II'],
+                    ['AG-205-PS', 'Horticulture - II'],
+                    ['AG-206-PS', 'Extension and Communication'],
+                    ['AG-207-PS', 'Soil Science and Fertilizer Management'],
+                    ['AG-208-PS', 'Industrial Crops and Post-harvest Technology'],
+                    ['AG-209-PS', 'Field Practice - I'],
+                    ['AG-210-PS', 'Plant Science Project']
                 ]
             ],
             'Third Year' => [
-                'Semester I' => [
-                    ['AG3101PS', 'Medicinal Plants and NTFP'], ['AG3102PS', 'Grain Legumes and Oilseed Crops'],
-                    ['AG3103PS', 'Fruit Crop Production'], ['AG3104PS', 'Post-Harvest Technology'],
-                    ['AG3105PS', 'Agriculture Extension & Comm.'], ['AG3106PS', 'Agribusiness, Marketing & Coop.'],
-                    ['AG3107PS', 'Ornamental Horticulture'], ['AG3108PS', 'Seed Technology']
-                ],
-                'Semester II' => [
-                    ['AG3201PS', 'Elementary Agriculture Statistics'], ['AG3202PS', 'Social Mobilization & Community Dev.'],
-                    ['EG3201MG', 'Entrepreneurship Development'], ['AG3204PS', 'Internship (Farm Practice Training)']
+                'Specialized & Professional Subjects' => [
+                    ['AG-301-SH', 'Nepali'],
+                    ['AG-302-PS', 'Plant Protection - II'],
+                    ['AG-303-PS', 'Agricultural Economics, Marketing & Cooperatives'],
+                    ['AG-304-PS', 'Irrigation and Farm Power'],
+                    ['AG-305-PS', 'Field Practice - II'],
+                    ['AG-306-MG', 'Entrepreneurship Development'],
+                    ['AG-307-PS', 'Internship (Work Place Based Learning)']
                 ]
             ]
         ];
         @endphp
 
-        @foreach($syllabus as $year => $semesters)
+        @foreach($plantScienceSyllabus as $year => $sections)
         <div class="mb-12">
-            <h2 class="text-xl font-extrabold text-slate-800 mb-6 flex items-center gap-3">
-                <span class="bg-slate-800 text-white px-3 py-1 text-sm rounded">{{ $year }}</span>
+            <div class="flex items-center gap-4 mb-6">
+                <span class="bg-slate-800 text-white px-4 py-1.5 rounded-full text-sm font-bold uppercase tracking-wider">{{ $year }}</span>
                 <div class="h-px bg-slate-200 flex-1"></div>
-            </h2>
+            </div>
             
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                @foreach($semesters as $semesterName => $courses)
+            <div class="grid grid-cols-1 gap-8">
+                @foreach($sections as $sectionName => $courses)
                 <div class="bg-white border border-slate-200 shadow-sm flex flex-col">
-                    <div class="bg-slate-50 px-5 py-3 border-b border-slate-200">
-                        <h3 class="text-slate-700 text-xs font-bold uppercase tracking-wider">{{ $semesterName }}</h3>
+                    <div class="bg-slate-50 px-5 py-3 border-b border-slate-200 flex justify-between items-center">
+                        <h3 class="text-slate-800 text-xs font-bold uppercase tracking-widest">{{ $sectionName }}</h3>
+                        <span class="text-[10px] text-slate-400 font-medium">Yearly System</span>
                     </div>
-                    <div class="flex-1">
+                    <div class="overflow-x-auto">
                         <table class="w-full text-left border-collapse">
+                            <thead>
+                                <tr class="bg-slate-50/50">
+                                    <th class="px-5 py-3 text-[10px] uppercase tracking-wider text-slate-500 font-bold border-b border-slate-100">Code</th>
+                                    <th class="px-5 py-3 text-[10px] uppercase tracking-wider text-slate-500 font-bold border-b border-slate-100">Subject Title</th>
+                                </tr>
+                            </thead>
                             <tbody class="divide-y divide-slate-100">
                                 @foreach($courses as $course)
                                 <tr class="hover:bg-slate-50 transition-colors">
-                                    <td class="px-5 py-3 text-[10px] font-mono font-bold text-slate-400 w-32 border-r border-slate-50">{{ $course[0] }}</td>
-                                    <td class="px-5 py-3 text-xs font-semibold text-slate-700">{{ $course[1] }}</td>
+                                    <td class="px-5 py-3 text-xs font-mono font-bold text-[#302171] w-48 border-r border-slate-50">{{ $course[0] }}</td>
+                                    <td class="px-5 py-3 text-xs font-semibold text-slate-700 leading-tight">{{ $course[1] }}</td>
                                 </tr>
                                 @endforeach
                             </tbody>
@@ -107,6 +111,11 @@
             </div>
         </div>
         @endforeach
+
+        <div class="mt-8 p-4 bg-slate-100 border-l-4 border-slate-800 text-slate-600 text-[11px]">
+            <p>* Subjects and codes are structured as per the 2025 (2082 BS) CTEVT Revision.</p>
+            <p>* The 3rd year includes a compulsory 6-month Internship (Work Place Based Learning).</p>
+        </div>
     </div>
 </div>
 @endsection
