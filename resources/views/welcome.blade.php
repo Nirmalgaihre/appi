@@ -1,9 +1,11 @@
 @extends('layouts.app')
 @section('title', 'Annapurna Polytechnic Institute | Kahundanda, Kaski')
 
-@section('meta_description', 'Welcome to API. We offer Diploma programs in Plant Science and Animal Science. Explore our faculty, principal’s message, and latest notices.')
+@section('meta_description', 'Welcome to API. We offer Diploma programs in Plant Science and Animal Science. Explore our
+faculty, principal’s message, and latest notices.')
 
-@section('meta_keywords', 'Annapurna Polytechnic Institute, API Kaski, Plant Science, Animal Science, Technical School Nepal')
+@section('meta_keywords', 'Annapurna Polytechnic Institute, API Kaski, Plant Science, Animal Science, Technical School
+Nepal')
 @section('content')
 
 {{-- ── TICKER BAR ── --}}
@@ -169,14 +171,13 @@ $docs = DB::table('resources')->orderBy('id', 'desc')->take(5)->get();
                 <div class="w-12 h-[2px] bg-[#FF8A65]"></div>
             </div>
 
-            <h2 class="text-5xl md:text-7xl font-extrabold text-white leading-[1.1] mb-8">
-                Shape your future<br>with <span
-                    class="text-white/90 underline decoration-[#FF8A65] underline-offset-8">CTEVT</span> Diploma Course
+            <h2 class="text-4xl md:text-6xl font-bold text-white leading-tight mb-5">
+                Start Your Technical Journey with <span class="text-[#FF8A65]">CTEVT</span>
             </h2>
 
-            <p class="text-white/80 text-lg mb-10 max-w-xl leading-relaxed">
-                Empowering students with technical excellence and vocational skills to bridge the gap between education
-                and industry demands.
+            <p class="text-white/75 text-lg max-w-2xl mb-8 leading-relaxed">
+                Get hands-on learning and practical knowledge that helps you grow your skills and build a successful
+                career.
             </p>
 
             <div class="flex flex-wrap gap-5">
@@ -186,7 +187,7 @@ $docs = DB::table('resources')->orderBy('id', 'desc')->take(5)->get();
                 </a>
                 <a href="/contact"
                     class="px-8 py-4 border border-white/30 text-white font-black text-sm uppercase tracking-widest flex items-center gap-2 hover:bg-white hover:text-[#013e37] transition-all">
-                    Contact Us <i class="fa-solid fa-arrow-right"></i>
+                            Get in Touch<i class="fa-solid fa-arrow-right"></i>
                 </a>
             </div>
         </div>
