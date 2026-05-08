@@ -12,7 +12,8 @@
         content="@yield('meta_description', 'Official website of Annapurna Polytechnic Institute (API), providing technical excellence in DIT and DCE.')">
 
     {{-- 3. DYNAMIC KEYWORDS --}}
-    <meta name="keywords" content="@yield('meta_keywords', 'API, Annapurna Polytechnic, CTEVT Nepal')">
+    <meta name="keywords"
+        content="@yield('meta_keywords', 'API, Annapurna Polytechnic, CTEVT Nepal')">
 
     {{-- 4. SOCIAL MEDIA (Optional but recommended) --}}
     <meta property="og:title" content="@yield('title')">
@@ -26,16 +27,6 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="icon" type="image/png" href="{{ asset('assets/img/logo.png') }}">
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "WebSite",
-        "name": "Annapurna Polytechnic Institute",
-        "alternateName": ["API", "Annapurna Polytechnic"],
-        "url": "https://api.edu.np/"
-    }
-    </script>
-    
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
@@ -165,7 +156,7 @@ $nepaliDate = \Anuzpandey\LaravelNepaliDate\LaravelNepaliDate::from(now())
                 <span class="flex items-center gap-1.5">
                     <i class="fa-regular fa-envelope opacity-70 text-yellow-400"></i>
                     <a href="mailto: ctevtappi@gmail.com" class="hover:underline transition-colors tracking-tight">
-                        ctevtappi@gmail.com
+                         ctevtappi@gmail.com
                     </a>
                 </span>
 
